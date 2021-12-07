@@ -1,12 +1,17 @@
 ## Changes:
-This fork adds 2 new files and needs just the jar with the dependencies from the original repository to function.
 
-you need to download `inotify-tools` (`sudo apt install inotify-tools`) and replace the placeholder texts in line [17](https://github.com/RoguedBear/icm/blob/f564e1044a606196e826e344ee104dce3c3f688f/send_telegram.py#L17) and [18](https://github.com/RoguedBear/icm/blob/f564e1044a606196e826e344ee104dce3c3f688f/send_telegram.py#L18) in [`send_telegram.py`](send_telegram.py) with your own Bot token and your chat id.
+> **UPDATE as of `v2.1.2-RoguedBear-1`:** When you run the jar file, monitoring
+> will start automatically \
+> Since i plan to use this program in an automated/unattended state aka when the
+> machine starts up and the bash script runs i dont have to press the "start monitoring
+> button", i just added a `.doClick()` call to the "start monitoring" button
 
+This fork adds 2 new files and needs just the jar with the dependencies from the
+original repository to function.
 
-The `inotifywait`blocks until a new log file is detected/modified in the `log/` subdirectory and then passes the filename to `tail` which fetches the last line and passes to `./send_telegram.py`.
-
-**PS:** you might need to make `send_telegram.py` executable before running. (`chmod +x send_telegram.py`)
+The `inotifywait`blocks until a new log file is detected/modified in the `log/`
+subdirectory and then passes the filename to `tail` which fetches the last line
+and passes to `./send_telegram.py`.
 
 
 # icm
