@@ -393,6 +393,8 @@ public class UserInterface {
       CHKAUTOSAVE.addActionListener(new CheckboxStatus());
       btnAbout.addActionListener(new AboutMessage());
 
+      btnMonitor.doClick(); // click the button to start auto monitoring
+
    }
 
    class StartMonitor implements ActionListener {
