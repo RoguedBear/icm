@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=sh -c "cd ~/Github/OutageMonitorCustom && gnome-terminal -- bash ./wait_for_change.sh"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=InternetConnectivityMonitor
+Comment=starts up a bash script that opens another java program icm to monitor internet and upon changes in log files alerts the user via a telegram message
