@@ -13,8 +13,8 @@ The `inotifywait`blocks until a new log file is detected/modified in the `log/`
 subdirectory and then passes the filename to `tail` which fetches the last line
 and passes to `./send_telegram.py`.
 
-**PS:** you might need to make `send_telegram.py` executable before running. 
-(`chmod +x send_telegram.py`)
+**PS:** you might need to make `send_telegram.py` executable before running 
+(`chmod +x send_telegram.py`) and also create a `./log/` folder
 
 # icm
 icm (Internet Connectivity Monitoring) monitors your internet connection uptime and logs each outage. If your internet has been unstable or unreliable icm can help identify how often and for how long your connection is down. It will optionally play .wav files and/or hit GET endpoints on connect and disconnect. Although a windows executable is provided, it is 100% java and should be portable across platforms via the jar distribution.<br/>
