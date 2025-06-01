@@ -1,7 +1,7 @@
-#!/usr/bin/env python3.8
+#!/usr/bin/env python3
+import os
 import re
 import sys
-from html import escape
 from time import sleep
 
 import requests
@@ -14,8 +14,8 @@ def alert_on_telegram(msg: str):
     :param msg: The message
     :return: None
     """
-    CHAT_ID = "YOUR CHAT ID"
-    BOT_TOKEN = "YOUR BOT TOKEN"
+    CHAT_ID = os.getenv("TG_CHAT_ID", "YOUR CHAT ID")
+    BOT_TOKEN = os.getenv("TG_BOT_TOKEN", "YOUR BOT TOKEN")
     if BOT_TOKEN and CHAT_ID:
         try_again = True
         while try_again:
@@ -56,20 +56,21 @@ def parse_time(message: str):
         seconds = int(parse_re.findall(message)[0])
         output = recursive_format(seconds)
     except ValueError:
-        output = "Something went wrong processing seconds." \
-                 "\n \"" + message + "\""
+        output = 'Something went wrong processing seconds.\n "' + message + '"'
 
     return output
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     message = input()
     if len(message) <= 1:
         print("ERROR! did not receive any input", file=sys.stderr)
         sys.exit(1)
     time_seconds = parse_time(message)
-    message = f"`{message[:33]} + {parse_time(message)}`" \
-              f"\n\nIf the outage duration is less than 5 minutes, ignore this message\." \
-              f" \\%23Outage"
+    message = (
+        f"`{message[:33]} + {parse_time(message)}`"
+        f"\n\nIf the outage duration is less than 5 minutes, ignore this message\\."
+        f" \\%23Outage"
+    )
 
     alert_on_telegram(message)

@@ -1,0 +1,12 @@
+services:
+  icm:
+    image: ghcr.io/roguedbear/icm
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    network_mode: host
+    stop_grace_period: 0s
+    restart: unless-stopped
+    environment:
+      TG_CHAT_ID:
+      TG_BOT_TOKEN:
