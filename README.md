@@ -9,12 +9,20 @@
 This fork adds 2 new files and needs just the jar with the dependencies from the
 original repository to function.
 
-The `inotifywait`blocks until a new log file is detected/modified in the `log/`
+The `inotifywait` blocks until a new log file is detected/modified in the `log/`
 subdirectory and then passes the filename to `tail` which fetches the last line
 and passes to `./send_telegram.py`.
 
-**PS:** you might need to make `send_telegram.py` executable before running 
+**PS(s):** 
+- you might need to make `send_telegram.py` executable before running 
 (`chmod +x send_telegram.py`) and also create a `./log/` folder
+
+- If you want to skip the manual setup, you can just run everything with Docker using the provided `docker-compose.yml`. 
+
+- If you're setting things up without Docker and are stuck _(understandably so, when i was dockerising this project  i realised the weight of years old legacy janked together)_ then you can take a look at the `Dockerfile` to see what all dependencies and steps are needed to get this running.
+
+
+
 
 # icm
 icm (Internet Connectivity Monitoring) monitors your internet connection uptime and logs each outage. If your internet has been unstable or unreliable icm can help identify how often and for how long your connection is down. It will optionally play .wav files and/or hit GET endpoints on connect and disconnect. Although a windows executable is provided, it is 100% java and should be portable across platforms via the jar distribution.<br/>
