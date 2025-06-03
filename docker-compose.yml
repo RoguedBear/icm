@@ -1,6 +1,7 @@
 services:
   icm:
-    image: ghcr.io/roguedbear/icm
+    container_name: internet-connectivity-monitor
+    image: ghcr.io/roguedbear/icm:v2.1.2-roguedbear-1
     build:
       context: .
       dockerfile: ./Dockerfile
