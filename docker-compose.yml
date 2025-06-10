@@ -11,3 +11,4 @@ services:
     environment:
       TG_CHAT_ID:
       TG_BOT_TOKEN:
+      TZ: Asia/Kolkata
